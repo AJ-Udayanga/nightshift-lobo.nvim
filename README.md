@@ -48,14 +48,15 @@ It is meant to feel calm, serious, and premium.
 ## 📦 Installation (Lazy.nvim)
 
 ```lua
-{
-  "AJ-Udayanga/nightshift-lobo.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    vim.cmd.colorscheme("nightshift-lobo")
-  end,
-}
+return {
+  {
+    "NightShiftLobo/nightshift-lobo.nvim",
+    lazy = false,
+    config = function()
+      require("nightshift-lobo").setup()
+      require("nightshift-lobo").load()
+    end,
+  },
 ```
 
 ---
