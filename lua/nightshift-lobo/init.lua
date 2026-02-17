@@ -18,6 +18,26 @@ function M.setup(opts)
     end,
   })
 
+  vim.api.nvim_create_user_command("NightshiftLoboInfo", function()
+    local cfg = require("nightshift-lobo.config").options
+    local palette = require("nightshift-lobo.palette")
+    local flavour = palette.normalize_flavour(cfg.flavour)
+    local c = palette.get(flavour)
+
+    vim.notify(
+      string.format(
+        "nightshift-lobo | flavour=%s | background=%s | bg=%s | surface=%s | fg=%s | accent=%s",
+        flavour,
+        palette.background(flavour),
+        c.bg,
+        c.surface,
+        c.fg,
+        c.accent
+      ),
+      vim.log.levels.INFO
+    )
+  end, {})
+
   command_created = true
 end
 
