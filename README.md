@@ -1,57 +1,60 @@
-# 🐺 NightShift-Lobo.nvim
+# NightShift-Lobo.nvim
 
-A dark, modern ecosystem color theme inspired by deep night blues, muted teals, and warm gold highlights.
+NightShift Lobo for Neovim.
 
-Designed for:
+A focused editor theme with four flavours:
+- `eclipse`
+- `shadow`
+- `obsidian`
+- `dawn`
 
-* 🌙 Long coding sessions
-* 🧠 Low eye fatigue
-* 🎯 Clear syntax hierarchy
-* 🖥 IPS / wide-gamut displays
+The current build keeps the NightShift UI identity while using a more complete syntax model aligned with the VSCode theme.
 
-NightShift-Lobo is part of a full ecosystem theme covering terminal, editor, browser, and shell.
+## Features
 
----
+- Four flavours with shared syntax structure
+- Tree-sitter highlights
+- LSP semantic token fallback groups
+- Diagnostics and inlay hints
+- Telescope integration
+- `nvim-cmp` integration
+- `gitsigns` integration
+- Terminal and editor UI groups
 
-## 🎨 Color Philosophy
+## Syntax Philosophy
 
-NightShift-Lobo is built around:
+NightShift Lobo now uses a clearer role-based syntax lane model:
 
-* Deep charcoal-blue backgrounds
-* Muted arctic cyan & teal accents
-* Soft gold highlights
-* Controlled saturation
-* High readability without neon glow
+- comments: muted, italic
+- strings: green
+- numbers and booleans: orange
+- plain variables: neutral foreground
+- properties and fields: teal
+- functions and methods: blue, italic
+- keywords and control flow: purple
+- types, classes, interfaces, enums: yellow, italic
+- decorators and macros: warm orange
+- builtins and special self-like identifiers: red accent
 
-This is **not** a flashy theme.
-It is meant to feel calm, serious, and premium.
+Markdown hierarchy follows the same system:
 
----
+- H1: red
+- H2: orange
+- H3: yellow
+- H4: green
+- H5: cyan
+- H6: soft blue
 
-## 🌈 Palette
+## Installation
 
-| Role       | Color     |
-| ---------- | --------- |
-| Background | `#0F1117` |
-| Surface    | `#1C2230` |
-| Foreground | `#D7DAE3` |
-| Blue       | `#6C82D9` |
-| Cyan       | `#4FA3B1` |
-| Teal       | `#5FA8B8` |
-| Green      | `#6CBF84` |
-| Yellow     | `#CFAE6A` |
-| Red        | `#D67A7A` |
-| Comment    | `#5C6370` |
-
----
-
-## 📦 Installation (Lazy.nvim)
+### lazy.nvim
 
 ```lua
 return {
   {
     "NightShiftLobo/nightshift-lobo.nvim",
     lazy = false,
+    priority = 1000,
     config = function()
       require("nightshift-lobo").setup({
         flavour = "eclipse", -- eclipse | shadow | obsidian | dawn
@@ -59,56 +62,88 @@ return {
       require("nightshift-lobo").load()
     end,
   },
+}
 ```
 
----
+## Configuration
 
-## ⚡ Usage
+```lua
+require("nightshift-lobo").setup({
+  flavour = "eclipse",
+  transparent = false,
+  dim_inactive = false,
+  styles = {
+    comments = { italic = true },
+    keywords = { italic = false, bold = false },
+    functions = { italic = true, bold = false },
+    strings = { italic = false },
+    variables = { italic = false },
+  },
+})
 
-After installation:
-
+require("nightshift-lobo").load()
 ```
+
+## Usage
+
+```vim
 :colorscheme nightshift-lobo
 ```
 
----
+Switch flavour at runtime:
 
-## 🔌 Supported Integrations
-
-* Treesitter
-* LSP Diagnostics
-* Telescope
-* nvim-cmp
-* Floating Windows
-* Terminal Colors
-
-More integrations coming soon.
-
----
-
-## 🖥 Ecosystem Roadmap
-
-NightShift-Lobo is expanding into:
-
-* 🐱 Kitty Terminal
-* 🧠 VSCode
-* 🌐 Browser theme
-* 🐚 Shell styling
-* 🪟 Window manager styling
-
-One palette. One identity.
-
----
-
-## 🛠 Development
-
-Project structure:
-
+```vim
+:NightshiftLoboFlavour eclipse
+:NightshiftLoboFlavour shadow
+:NightshiftLoboFlavour obsidian
+:NightshiftLoboFlavour dawn
 ```
+
+Inspect the active palette:
+
+```vim
+:NightshiftLoboInfo
+```
+
+## Flavours
+
+### Eclipse
+
+Deepest dark flavour. Strongest NightShift identity.
+
+### Shadow
+
+Balanced dark flavour. Slightly softer surfaces than Eclipse.
+
+### Obsidian
+
+Cooler dark flavour with a denser slate base.
+
+### Dawn
+
+Light flavour using the same syntax logic with softer daytime surfaces.
+
+## Supported Integrations
+
+- Tree-sitter
+- Native syntax groups
+- LSP diagnostics
+- LSP semantic token fallback groups
+- Telescope
+- `nvim-cmp`
+- `gitsigns`
+- Floating windows
+- completion menus
+
+## Project Structure
+
+```text
 nightshift-lobo.nvim/
+├── colors/
+│   └── nightshift-lobo.lua
 ├── lua/nightshift-lobo/
-│   ├── init.lua
 │   ├── config.lua
+│   ├── init.lua
 │   ├── util.lua
 │   ├── palette/
 │   │   ├── init.lua
@@ -123,26 +158,12 @@ nightshift-lobo.nvim/
 │   │   ├── treesitter.lua
 │   │   └── lsp.lua
 │   └── integrations/
-│       ├── telescope.lua
 │       ├── cmp.lua
-│       └── gitsigns.lua
-└── colors/nightshift-lobo.lua
+│       ├── gitsigns.lua
+│       └── telescope.lua
+└── README.md
 ```
 
----
+## License
 
-## 📄 License
-
-GPL-3.0 license
-
----
-
-## ✨ Vision
-
-NightShift-Lobo is not just a colorscheme.
-It is a cohesive dark UI identity built for developers who prefer:
-
-* Minimal glow
-* Clean contrast
-* Professional aesthetics
-* Focus-first design
+GPL-3.0

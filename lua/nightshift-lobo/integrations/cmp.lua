@@ -18,22 +18,35 @@ function M.load()
     CmpItemMenu = { fg = c.fg_soft },
 
     CmpItemKindText = { fg = c.fg_dim },
-    CmpItemKindVariable = { fg = c.fg_dim },
-    CmpItemKindProperty = { fg = c.teal },
-    CmpItemKindField = { fg = c.teal },
-    CmpItemKindFunction = { fg = c.accent },
-    CmpItemKindMethod = { fg = c.accent },
-    CmpItemKindConstructor = { fg = c.magenta },
-    CmpItemKindClass = { fg = c.magenta },
-    CmpItemKindInterface = { fg = c.magenta },
-    CmpItemKindModule = { fg = c.magenta },
-    CmpItemKindKeyword = { fg = c.yellow },
-    CmpItemKindSnippet = { fg = c.green },
-    CmpItemKindFile = { fg = c.cyan },
-    CmpItemKindFolder = { fg = c.cyan },
+    CmpItemKindVariable = { fg = c.fg },
+    CmpItemKindValue = { fg = c.fg },
+    CmpItemKindProperty = { fg = c.property },
+    CmpItemKindField = { fg = c.property },
+    CmpItemKindEnumMember = { fg = c.property },
+
+    CmpItemKindFunction = { fg = c.func },
+    CmpItemKindMethod = { fg = c.func },
+
+    CmpItemKindConstructor = { fg = c.type },
+    CmpItemKindClass = { fg = c.type },
+    CmpItemKindInterface = { fg = c.type },
+    CmpItemKindStruct = { fg = c.type },
+    CmpItemKindTypeParameter = { fg = c.type },
+    CmpItemKindModule = { fg = c.type },
+    CmpItemKindUnit = { fg = c.type },
+
+    CmpItemKindKeyword = { fg = c.keyword },
+    CmpItemKindOperator = { fg = c.punctuation },
+
     CmpItemKindConstant = { fg = c.constant },
-    CmpItemKindEnum = { fg = c.constant },
-    CmpItemKindEnumMember = { fg = c.constant },
+    CmpItemKindEnum = { fg = c.type },
+
+    CmpItemKindSnippet = { fg = c.string },
+    CmpItemKindFile = { fg = c.accent },
+    CmpItemKindFolder = { fg = c.accent },
+    CmpItemKindReference = { fg = c.blue_soft },
+    CmpItemKindEvent = { fg = c.decorator },
+    CmpItemKindColor = { fg = c.decorator },
   })
 end
 

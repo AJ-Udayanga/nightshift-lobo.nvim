@@ -7,7 +7,7 @@ M.options = {
   styles = {
     comments = { italic = true },
     keywords = { italic = false, bold = false },
-    functions = { italic = false, bold = false },
+    functions = { italic = true, bold = false },
     strings = { italic = false },
     variables = { italic = false },
   },
